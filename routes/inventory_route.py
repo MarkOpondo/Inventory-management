@@ -58,7 +58,7 @@ def update_item(id):
     if "price" in data:
         item.price = float(data["price"])
 
-    save_db(inventory) # Commit modifications
+    save_db(inventory)
     return jsonify(item.to_dict()), 200
 
 # DELETE /inventory/<id>
@@ -71,7 +71,7 @@ def delete_item(id):
         return jsonify({"error": "Item not found"}), 404
         
     updated_inventory = [i for i in inventory if i.id != id]
-    save_db(updated_inventory) # Commit state
+    save_db(updated_inventory)
     return "", 204
 
 
