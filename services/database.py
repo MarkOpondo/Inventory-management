@@ -1,6 +1,6 @@
 import json
 import os
-from models import InventoryItem
+from models.inventory import InventoryItem
 
 DB_FILE = "inventory.json"
 
