@@ -2,7 +2,7 @@ import json
 import os
 from models.inventory import InventoryItem
 
-DB_FILE = "inventory.json"
+DB_FILE = "data/inventory.json"
 
 def load_db():
     """Reads JSON from storage and instantiates list items."""

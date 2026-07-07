@@ -73,5 +73,3 @@ def delete_item(id):
     updated_inventory = [i for i in inventory if i.id != id]
     save_db(updated_inventory)
     return "", 204
-
-
