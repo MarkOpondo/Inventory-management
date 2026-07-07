@@ -7,3 +7,7 @@ class InventoryItem:
 
     def to_dict(self):
         return{"id": self.id, "name": self.name, "quantity": self.quantity, "price": self.price}
+    
+    @staticmethod
+    def from_dict(data):
+        return InventoryItem(data["id"], data["name"], data["quantity"], data["price"])
