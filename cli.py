@@ -65,6 +65,8 @@ while True:
 
     elif choice == "5":
         barcode = input("Enter the items barcode: ")
+        
+        # GET request to openfoodfacts api
         response = requests.get(F"{INVENTORY_URL}/{barcode}")
 
         if response.status_code == 200:
