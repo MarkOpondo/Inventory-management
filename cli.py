@@ -2,6 +2,7 @@ import requests
 
 # URL of your Flask web backend server
 BASE_URL = "http://127.0.0.1:5000/inventory"
+INVENTORY_URL = "http://127.0.0.1:5001/product"
 
 while True:
     print("\n--- INVENTORY SYSTEM CLIENT ---")
@@ -9,9 +10,10 @@ while True:
     print("2. Add New Item")
     print("3. Update Item Quantity")
     print("4. Delete An Item")
-    print("5. Exit Application")
+    print("5. Search Open foods facts")
+    print("6. Exit Application")
     
-    choice = input("Select an option (1-5): ").strip()
+    choice = input("Select an option (1-6): ").strip()
 
     if choice == "1":
         # GET request to fetch the inventory list
@@ -62,6 +64,17 @@ while True:
             print(f"Error: {response.json().get('error')}")
 
     elif choice == "5":
+        barcode = input("Enter the items barcode: ")
+        response = requests.get(F"{INVENTORY_URL}/{barcode}")
+
+        if response.status_code == 200:
+            data = response.json()
+            print(f"Name : {data["name"]} \n Ingredients : {data["ingredients"]}")
+
+        else:
+            print("No such product in our inventory")
+
+    elif choice == "6":
         print("Closing application. Goodbye!")
         break
         
